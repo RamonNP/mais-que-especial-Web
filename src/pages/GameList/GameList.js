@@ -35,7 +35,7 @@ class GameList extends Component {
                              <div className="card border-secondary mb-3" id="cardsCustom">
                                  <div className="card-header">{games.descnome}</div>
                                  <div className="card-body text-secondary">
-                                 <h5 className="card-title">Diciplina Memoria</h5>
+                                 <h5 className="card-title">Disciplina Memoria</h5>
                                  <a target="" href={games.descurl}>
                                     <img src={games.descImg} alt="" className="imgGame" id="imgGame"/> 
                                  </a>
