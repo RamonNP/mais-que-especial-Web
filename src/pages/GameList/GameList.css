@@ -43,3 +43,12 @@ form#form-id {
   
     object-fit: cover;
 }
+#idAcessar {
+  margin-bottom: 10px;
+  height: 38px;
+  padding: 0 20px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}

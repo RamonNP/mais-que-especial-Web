@@ -57,6 +57,7 @@ class Game extends Component {
 
     loadGame = async () => {
         const { id } = this.props.match.params;
+        console.log(this.props.match.params);
         const response = await api.get('/especial/web/recuperarJogo/'+id);
 
         this.setState({ GameInfo:response.data });

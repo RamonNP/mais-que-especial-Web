@@ -5,6 +5,7 @@ import Page1 from './pages/Instituicao';
 import Game from './pages/Game/';
 import Chart from './pages/Chart';
 import Page3 from './pages/GameList/GameList';
+import AlunoList from './pages/AlunoList/AlunoList';
 
 function Routes() {
     return (
@@ -12,8 +13,9 @@ function Routes() {
             <Route path="/" exact component={Page1} />
             <Route path="/Instituicao" component={Page1} />
             <Route path="/Game/:id" component={Game} />
-            <Route path="/Chart/" component={Chart} />
+            <Route path="/Chart/:id" component={Chart} />
             <Route path="/GameList" component={Page3} />
+            <Route path="/AlunoList" component={AlunoList} />
         </Switch>
     )
 }

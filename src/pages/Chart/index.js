@@ -28,6 +28,9 @@ class Chart extends PureComponent {
     };
 
     loadPlay = async () => {
+        const { id } = this.props.match.params;
+        this.jogadas.nrIdAluno = id;
+        //console.log(this.props);
         const response = await api.post('/especial/getPlayByUserAndGame', this.jogadas);
         this.setState({data:response.data});
         console.log(response);
@@ -44,8 +47,8 @@ class Chart extends PureComponent {
                     {game.nome}
                     </div>
                       <div className="card-body">
-                        <h5 className="card-title">Jogo do espaço </h5>
-                        <p className="card-text">Descrição do Jogos de Espaço With supporting text below as a natural lead-in to additional content.</p>
+                       
+                        <p className="card-text"> {game.jogo}</p>
                       </div> 
                           
                           <LineChart

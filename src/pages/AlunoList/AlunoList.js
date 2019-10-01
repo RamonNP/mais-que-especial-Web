@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import "./GameList.css"
+import "./AlunoList.css"
 import { Link } from 'react-router-dom'
 
-class GameList extends Component {
+class AlunoList extends Component {
 
     state = {
         games : [],
     };
 
     async componentDidMount() {
-        this.loadUsers();
+        this.loadAlunos();
         //const response = await api.get('/especial/listaGames');
         //const response = await api.get('https://viacep.com.br/ws/01001000/json/');
 
@@ -19,8 +19,8 @@ class GameList extends Component {
         //console.log(this.state.games);
     };
 
-    loadUsers = async () => {
-        const response = await api.get('/especial/web/listaGames');
+    loadAlunos = async () => {
+        const response = await api.get('/especial/getAlunos');
         this.setState({games:response.data});
         console.log(response);
     } 
@@ -32,17 +32,18 @@ class GameList extends Component {
             <form id="form-id" onSubmit={this.handleSubmit}>
                 <div className="form-row">
                     {this.state.games.map( games => (
-                         <div className="form-group col-md-4">
+                         <div className="form-group col-md-4" key={games.id}>
                              <div className="card border-secondary mb-3" id="cardsCustom">
-                                 <div className="card-header">{games.descnome}</div>
+                                 <div className="card-header">Professor : {games.professor}</div>
                                  <div className="card-body text-secondary">
+                                 <h5 className="card-title">{games.nome}</h5>
                                  
-                                 <img src={games.descImg} alt="" className="imgGame" id="imgGame"/> 
-                                 
+                                    <img src={games.avatar}  className="userImg" alt="" id="userImg"/> 
+                                    <Link to={'/Chart/'+games.id} id="idAcessar">Acessar</Link>
+                                
                                  <hr></hr>
-                                 <p className="card-text">{games.descDetalhe}</p>
+                                 <p className="card-text">Data de Nascimento:{games.idade}</p>
                                  </div>
-                                 <Link to={'/Game/'+games.nridjogo} id="idAcessar">Acessar</Link>
                              </div>
                          </div>                    
                     
@@ -53,4 +54,4 @@ class GameList extends Component {
     }
 }
 
-export default GameList
+export default AlunoList
